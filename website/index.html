@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      
+      <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/raleway" type="text/css"/>  
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Фотограф - Алина Карпова</title>
+        <link rel="stylesheet" type="text/css" href="website.css">
+    </head>
+    <body>
+         <header>
+          <div class="header-image">
+            <div class="header-left-text">
+                    <h1>ALINA KARPOVA</h1>
+                    <p>photography</p>
+                </div>
+            <nav>
+                <ul class="main-menu">
+                    <li><a href="#" class="active">Главная</a></li>
+                    <li><a href="portfolio/portfolio.html" class="portfolio1">Портфолио</a></li>
+                    <li><a href="price/price.html" class="price">Стоимость</a></li>
+                    <li><a href="reviews/reviews.html" class="reviews">Отзывы</a></li>
+                    <li><a href="registration/registration.html" class="registration">Регистрация</a></li>
+                </ul>
+                <div class="burger-menu" aria-label="Toggle navigation">
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                    <div class="burger"></div>
+                </div>
+            </nav>
+          </div>
+        </header>
+
+        <div class="mobile-menu" id="mobileMenu">
+          <ul class="mobile-menu-list">
+            <li><a href="#" class="active">Главная</a></li>
+            <li><a href="portfolio/portfolio.html" class="portfolio1">Портфолио</a></li>
+            <li><a href="price/price.html" class="price">Стоимость</a></li>
+            <li><a href="reviews/reviews.html" class="reviews">Отзывы</a></li>
+            <li><a href="registration/registration.html" class="registration">Регистрация</a></li>
+          </ul>
+        </div>
+
+        <section class="about-me-section">
+          <div class="about-left-block">
+              <img src="image/09.PNG" alt="img" class="about-photo">
+              <div class="about-text">
+                  <h2>Обо мне</h2>
+                  <p>Привет. Меня зовут Алина, я профессиональный фотограф с нескончаемой страстью к творчеству. Имею огромный опыт работы с известными брендами, артистами, блогерами и актерами. Через внешность помогаю найти уверенность в себе.</p>
+                  <p>Для меня фотография хороша, когда она внутренне движет и заставляет задуматься, а также естественна. Если вы ищете кого-то, 
+                для кого приоритетом является передача естественности и эмоционального заряда в ваших фотографиях, то вы попали идеально.</p>
+              </div>
+          </div>
+        </section>
+
+        <section class="before-me-section">
+          <div class="before-left-block">
+              <div class="before-text">
+                  <h2>Почему я?</h2>
+                  <div class="why-me-text">
+                    <p><span class="number">/01</span> не просто снимаю, а создаю воспоминания </p>
+                    <p><span class="number">/02</span> вижу мир по-другому и показываю его вам </p>
+                    <p><span class="number">/03</span> умение уловить эмоции, создать атмосферу на фотосессии </p>
+                    <p><span class="number">/04</span> индивидуальный подход к каждому клиенту </p>
+                  </div>
+              </div>
+              <img src="image/10.jpg" alt="img" class="before-photo">
+          </div>
+        </section>
+
+  
+
+
+        <div class="photo-carousel-container">
+            <button class="carousel-button left" aria-label="Scroll Left">&#10094;</button>
+            <div class="photo-carousel" tabindex="0">
+              <img src="image/03.jpg" alt="img" />
+              <img src="image/04.PNG" alt="img" />
+              <img src="image/05.PNG" alt="img" />
+              <img src="image/06.PNG" alt="img" />
+              <img src="image/07.PNG" alt="img" />
+              <img src="image/08.PNG" alt="img" />
+            </div>
+            <button class="carousel-button right" aria-label="Scroll Right">&#10095;</button>
+          </div>
+
+          <footer>
+                <div class="contacts">
+                    <h3>Контакты</h3>
+                    <p>Телефон: 89452095551</p>
+                    <p>Почта: alina_karpova@yandex.ru</p>
+                    <p>Адрес: г. Москва, ул. Зеленая, д. 7</p>
+                </div>
+
+            <hr class="footer-line">
+            <div class="footer-text">© 2024 Карпова Алина — художественный фотограф, открыта к сотрудничеству и предложениям. Все права защищены.</div>
+        </footer>
+
+        <script>
+        function toggleMenu() {
+          const mobileMenu = document.getElementById('mobileMenu');
+          const isOpen = mobileMenu.style.right === '0px';
+          mobileMenu.style.right = isOpen ? '-300px' : '0px'; 
+          }
+        
+        document.querySelectorAll('.burger-menu').forEach(function(burger) {
+          burger.addEventListener('click', toggleMenu);
+        });
+
+        document.querySelectorAll('.mobile-menu-list a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            document.getElementById('mobileMenu').style.right = '-300px'; 
+          });
+        });
+
+
+        document.addEventListener('click', function(event) {
+          const mobileMenu = document.getElementById('mobileMenu');
+          const burgerMenu = document.querySelector('.burger-menu');
+          
+          if (!mobileMenu.contains(event.target) && !burgerMenu.contains(event.target)) {
+            mobileMenu.style.right = '-300px';
+          }
+        });
+        </script>
+
+          <script>
+            (() => {
+              const carousel = document.querySelector('.photo-carousel');
+              const btnLeft = document.querySelector('.carousel-button.left');
+              const btnRight = document.querySelector('.carousel-button.right');
+          
+              const scrollAmount = carousel.querySelector('img').offsetWidth + 10;
+          
+              btnLeft.addEventListener('click', () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+              });
+          
+              btnRight.addEventListener('click', () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+              });
+          
+              function updateButtons() {
+                btnLeft.disabled = carousel.scrollLeft <= 0;
+                btnRight.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1;
+              }
+          
+              carousel.addEventListener('scroll', updateButtons);
+              window.addEventListener('resize', updateButtons);
+              updateButtons();
+            })();
+          </script>
+    </body>
+</html>
